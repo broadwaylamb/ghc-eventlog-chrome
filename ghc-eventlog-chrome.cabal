@@ -1,0 +1,71 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 5f5dd4925526b38a8d414bfec0b4fd8a76cd96691e31798c6c4cdc0e38371e1b
+
+name:           ghc-eventlog-chrome
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/broadwaylamb/ghc-eventlog-chrome#readme>
+homepage:       https://github.com/broadwaylamb/ghc-eventlog-chrome#readme
+bug-reports:    https://github.com/broadwaylamb/ghc-eventlog-chrome/issues
+author:         Sergej Jaskiewicz
+maintainer:     jaskiewiczs@icloud.com
+copyright:      2020 Sergej Jaskiewicz
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/broadwaylamb/ghc-eventlog-chrome
+
+library
+  exposed-modules:
+      GHCEventLogChrome
+  other-modules:
+      Paths_ghc_eventlog_chrome
+  hs-source-dirs:
+      src
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , ghc-events
+  default-language: Haskell2010
+
+executable ghc-eventlog-chrome-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_ghc_eventlog_chrome
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , ghc-eventlog-chrome
+    , ghc-events
+  default-language: Haskell2010
+
+test-suite ghc-eventlog-chrome-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_ghc_eventlog_chrome
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , ghc-eventlog-chrome
+    , ghc-events
+  default-language: Haskell2010

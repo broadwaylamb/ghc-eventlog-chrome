@@ -1,0 +1,51 @@
+name:                ghc-eventlog-chrome
+version:             0.1.0.0
+github:              "broadwaylamb/ghc-eventlog-chrome"
+license:             BSD3
+author:              "Sergej Jaskiewicz"
+maintainer:          "jaskiewiczs@icloud.com"
+copyright:           "2020 Sergej Jaskiewicz"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/broadwaylamb/ghc-eventlog-chrome#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- bytestring
+- ghc-events
+- aeson
+
+library:
+  source-dirs: src
+
+executables:
+  ghc-eventlog-chrome-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - ghc-eventlog-chrome
+
+tests:
+  ghc-eventlog-chrome-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - ghc-eventlog-chrome
